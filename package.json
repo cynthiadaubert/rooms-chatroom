@@ -1,0 +1,25 @@
+{
+  "name": "tarea-rooms",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "@types/node": "^18.6.1",
+    "@vaadin/router": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "firebase": "9.9.2",
+    "firebase-admin": "^11.0.1",
+    "lodash": "^4.17.21",
+    "nanoid": "^4.0.0",
+    "nodemon": "^2.0.19",
+    "parcel": "^2.0.0-rc.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel serve ./src/index.html",
+    "api": "nodemon --watch ./server/api.ts --exec ts-node ./server/api.ts"
+  },
+  "devDependencies": {
+    "@types/firebase": "^3.2.1"
+  }
+}
