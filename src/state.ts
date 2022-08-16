@@ -1,10 +1,6 @@
 const API_BASE_URL = "http://localhost:3009";
 
-<<<<<<< HEAD
 import { rtdb } from "../server/realtimeDB";
-=======
-import { rtdb } from "../src/realtimeDB";
->>>>>>> a837d37c7d9d16c577835f0cb7fb2ba689e8b005
 
 import map from "lodash/map";
 
