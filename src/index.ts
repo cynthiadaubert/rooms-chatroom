@@ -1,7 +1,11 @@
 import "./pages/welcome";
 import "./pages/chatroom";
 import { Router } from "@vaadin/router";
+<<<<<<< HEAD
 import "../server/realtimeDB";
+=======
+import "./realtimeDB";
+>>>>>>> a837d37c7d9d16c577835f0cb7fb2ba689e8b005
 import { state } from "./state";
 
 /* e */ (function () {
