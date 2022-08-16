@@ -1,11 +1,7 @@
 import "./pages/welcome";
 import "./pages/chatroom";
 import { Router } from "@vaadin/router";
-
 import "../server/realtimeDB";
-
-import "./realtimeDB";
-
 import { state } from "./state";
 
 /* e */ (function () {
