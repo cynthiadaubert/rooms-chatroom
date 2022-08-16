@@ -33,3 +33,5 @@ class Welcome extends HTMLElement {
 }
 
 customElements.define("welcome-page", Welcome);
+/* 
+cc */
