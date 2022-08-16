@@ -1,0 +1,38 @@
+{
+  "name": "tarea-rooms",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "@types/node": "^18.6.1",
+    "@vaadin/router": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "firebase": "^8.10.1",
+    "firebase-admin": "^11.0.0",
+    "lodash": "^4.17.21",
+    "nanoid": "3.1.25",
+    "parcel": "^2.0.0-rc.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel serve ./src/index.html",
+    "sos": "ts-node ./src/api.ts"
+  },
+  "devDependencies": {
+    "@types/firebase": "^3.2.1",
+    "assert": "^2.0.0",
+    "browserify-zlib": "^0.2.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "events": "^3.3.0",
+    "https-browserify": "^1.0.0",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
+    "querystring-es3": "^0.2.1",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.0",
+    "util": "^0.12.4"
+  }
+}
