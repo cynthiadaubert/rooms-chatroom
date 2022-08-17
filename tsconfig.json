@@ -1,11 +1,9 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "CommonJS",
-    "moduleResolution": "Node",
+    "target": "ESNext",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "lib": ["esnext", "DOM"],
-    "strictNullChecks": false
-  }
+    "esModuleInterop": true
+  },
+  "files": ["server/api.ts"]
 }
