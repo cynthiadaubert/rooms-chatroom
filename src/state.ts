@@ -18,11 +18,7 @@ const state = {
 
   initListener() {
     const storagedState = localStorage.getItem("saved-state");
-    if (storagedState == "null") {
-      this.setState(this.data);
-    } else {
-      this.setState(JSON.parse(storagedState));
-    }
+    console.log("soy el estado guardado", storagedState);
   },
 
   listenRoom() {
@@ -41,6 +37,15 @@ const state = {
     return this.data;
   },
 
+  setState(newState) {
+    this.data = newState;
+    for (const cb of this.listeners) {
+      cb();
+    }
+    localStorage.setItem("saved-state", JSON.stringify(newState));
+    console.log("soy el state, he cambiado", this.data);
+  },
+
   setEmailAndFullname(params: { email: String; fullname: String }) {
     const currentState = this.getState();
     currentState.email = params.email;
@@ -49,23 +54,14 @@ const state = {
   },
 
   pushMessage(message: String) {
-    const nombreEnState = this.data.nombre;
+    const nombreEnState = this.data.fullname;
     fetch(API_BASE_URL + "/messages", {
       method: "post",
       body: JSON.stringify({
-        nombre: nombreEnState,
+        fullname: nombreEnState,
         message: message,
       }),
     });
-  },
-
-  setState(newState) {
-    this.data = newState;
-    for (const cb of this.listeners) {
-      cb();
-    }
-    localStorage.setItem("saved-state", JSON.stringify(newState));
-    console.log("soy el state, he cambiado", this.data);
   },
 
   signIn(callback) {

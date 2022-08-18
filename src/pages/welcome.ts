@@ -1,7 +1,7 @@
 import { Router } from "@vaadin/router";
 import { state } from "../state";
 
-class Welcome extends HTMLElement {
+class WelcomePage extends HTMLElement {
   connectedCallback() {
     this.render();
     const form = document.querySelector(".form");
@@ -32,6 +32,4 @@ class Welcome extends HTMLElement {
   }
 }
 
-customElements.define("welcome-page", Welcome);
-/* 
-cc */
+customElements.define("welcome-page", WelcomePage);

@@ -5,8 +5,6 @@ import "../server/realtimeDB";
 import { state } from "./state";
 
 /* e */ (function () {
-  state.initListener();
-
   state.setEmailAndFullname({
     email: "cynthia@apx.school",
     fullname: "Cyn Perez",
@@ -19,6 +17,14 @@ import { state } from "./state";
       });
     }
   });
+
+  state.initListener();
+
+  if (localStorage == null) {
+    this.setState(this.data);
+  } /* else {
+    this.setState(JSON.parse(storagedState));
+  } */
 
   /*   // al comenzar
   state.initListener();

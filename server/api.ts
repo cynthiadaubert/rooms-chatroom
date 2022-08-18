@@ -2,7 +2,8 @@ import { rtdb, firestore } from "./realtimeDB";
 import cors from "cors";
 import express from "express";
 import nanoid from "nanoid";
-
+/* 
+const port = 3009; */
 const port = 3009;
 const app = express();
 
