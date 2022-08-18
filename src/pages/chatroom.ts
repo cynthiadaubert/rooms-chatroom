@@ -1,32 +1,39 @@
-import { Router } from "@vaadin/router";
+import { state } from "../state";
+
+type Message = {
+  from: String;
+  message: String;
+};
+
 class ChatroomPage extends HTMLElement {
   connectedCallback() {
     this.render();
-    const form = document.querySelector(".form");
+    const form = this.querySelector(".submit-message");
     form!.addEventListener("submit", (e) => {
       e.preventDefault();
       const target = e.target as any;
-      /*       console.log(target.nombre.value);
-        state.setNombre(target.nombre.value); */
-      Router.go("/chatroom");
+      console.log(target["new-message"].value);
     });
   }
+
+  messages: Message[] = [];
+
   render() {
     this.innerHTML = `
-          <h1>Bienvenido</h1>
-          <form class="form">
-              <div><label>email</label></div>
-              <input type="email" name="email">
-              <div><label>tu nombre</label></div>
-              <input type="text" name="nombre">
-              <div><label>room</label></div>
-              <select>
-                  <option>nuevo room</option>
-                  <option>room existente</option>
-              </select>
-              <button>Comenzar</button>
-          </form>
-          `;
+        <div class="container">
+            <h1>Chat</h1>
+            <div class="chat">
+                ${this.messages.map((messag) => {
+                  return `<div class="mensaje">${messag.from}:${messag.message}</div>`;
+                })}
+            </div>
+            <form class="submit-message">
+                <input type="text" name="new-message">
+                <button>Enviar</button>
+            </form>
+        </div>
+        
+        `;
   }
 }
 

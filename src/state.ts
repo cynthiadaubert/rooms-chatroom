@@ -19,17 +19,23 @@ const state = {
   initListener() {
     const storagedState = localStorage.getItem("saved-state");
     console.log("soy el estado guardado", storagedState);
+    if (storagedState == null) {
+      this.setState(this.data);
+    } else {
+      this.setState(JSON.parse(storagedState));
+    }
   },
 
   listenRoom() {
     const currentState = this.getState();
     const chatroomsRef = rtdb.ref("/rooms/" + currentState.rtdbRoomId);
+    console.log("console de listenroom", chatroomsRef);
     chatroomsRef.on("value", (snap) => {
       const serverMessages = snap.val();
       console.log(serverMessages);
 
       const messagesList = map(serverMessages.messages);
-      (currentState.messages = messagesList), this.setstate(currentState);
+      (currentState.messages = messagesList), this.setState(currentState);
     });
   },
 
@@ -53,7 +59,7 @@ const state = {
     this.setState(currentState);
   },
 
-  pushMessage(message: String) {
+  /*   pushMessage(message: String) {
     const nombreEnState = this.data.fullname;
     fetch(API_BASE_URL + "/messages", {
       method: "post",
@@ -62,9 +68,9 @@ const state = {
         message: message,
       }),
     });
-  },
+  }, */
 
-  signIn(callback) {
+  signIn(callback?) {
     const currentState = this.getState();
     if (currentState.email) {
       fetch(API_BASE_URL + "/auth", {
@@ -105,7 +111,7 @@ const state = {
         })
         .then((data) => {
           console.log("soy la data del fetch asknewRoom", data);
-          currentState.roomId = data.roomId;
+          currentState.roomId = data.id;
           this.setState(currentState);
           if (callback) {
             callback();

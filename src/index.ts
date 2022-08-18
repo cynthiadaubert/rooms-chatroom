@@ -5,6 +5,13 @@ import { state } from "./state";
 
 /* e */ (function () {
   initWelcomePage();
+
+  state.initListener();
+
+  state.suscribe(() => {
+    console.log("soy el state del init", state.getState().userId);
+  });
+
   state.setEmailAndFullname({
     email: "cynthia@apx.school",
     fullname: "Cyn Perez",
@@ -18,16 +25,14 @@ import { state } from "./state";
     }
   });
 
-  if (localStorage == null) {
-    this.setState(this.data);
-  } /* else {
-    this.setState(JSON.parse(storagedState));
-  } */
+  state.signIn();
+  state.askNewRoom();
+  state.listenRoom();
 })();
 
 /*   // al comenzar
   state.initListener();
- state.initListener();
+
   //una página (la UI) recupera el state del localStorage y si tiene el rtdbroom id y user id,
   // entonces redirige directamente a chatroom
 
