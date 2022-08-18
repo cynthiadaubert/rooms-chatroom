@@ -1,4 +1,5 @@
-import { rtdb, firestore } from "./realtimeDB";
+import { rtdb } from "./realtimeDB";
+import { firestore } from "./database";
 import cors from "cors";
 import express from "express";
 import nanoid from "nanoid";

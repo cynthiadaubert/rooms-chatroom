@@ -85,7 +85,7 @@ const state = {
         });
     } else {
       console.error("No hay email en el state");
-      /*     callback(true) */
+      callback(true);
     }
   },
 

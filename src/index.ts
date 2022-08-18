@@ -1,10 +1,10 @@
-import "./pages/welcome";
+import { initWelcomePage } from "./pages/welcome";
 import "./pages/chatroom";
 import { Router } from "@vaadin/router";
-import "../server/realtimeDB";
 import { state } from "./state";
 
 /* e */ (function () {
+  initWelcomePage();
   state.setEmailAndFullname({
     email: "cynthia@apx.school",
     fullname: "Cyn Perez",
@@ -18,17 +18,16 @@ import { state } from "./state";
     }
   });
 
-  state.initListener();
-
   if (localStorage == null) {
     this.setState(this.data);
   } /* else {
     this.setState(JSON.parse(storagedState));
   } */
+})();
 
-  /*   // al comenzar
+/*   // al comenzar
   state.initListener();
-
+ state.initListener();
   //una página (la UI) recupera el state del localStorage y si tiene el rtdbroom id y user id,
   // entonces redirige directamente a chatroom
 
@@ -37,4 +36,3 @@ import { state } from "./state";
     const router = new Router(document.querySelector(".root"));
     router.setRoutes({ path: "/chatroom", component: "chatroom-page" });
   } */
-})();
