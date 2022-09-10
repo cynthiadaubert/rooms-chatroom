@@ -3,11 +3,12 @@ import { firestore } from "./database";
 import cors from "cors";
 import express from "express";
 import nanoid from "nanoid";
+import "dotenv/config";
 
-const port = 3009;
+/* const port = 3009; */
+const port = process.env.PORT || 3009;
 const app = express();
 
-app.use(express.json());
 app.use(cors());
 
 const userCollectionRef = firestore.collection("users");
@@ -118,6 +119,12 @@ app.get("/rooms/:roomId", (req, res) => {
       }
     });
 });
+
+app.get("*", (req, res) => {
+  res.sendFile(__dirname + "/dist/index.html");
+});
+
+app.use(express.static("dist"));
 
 app.listen(port, () => {
   console.log("Server connected at http://localhost:${port}");

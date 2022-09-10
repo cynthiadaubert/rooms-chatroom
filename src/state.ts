@@ -98,7 +98,6 @@ const state = {
   askNewRoom(callback?) {
     const currentState = this.getState();
     if (currentState.userId) {
-      console.log(currentState.userId);
       fetch(API_BASE_URL + "/rooms", {
         method: "post",
         headers: {

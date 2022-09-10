@@ -1,18 +1,16 @@
-import { initWelcomePage } from "./pages/welcome";
+import "./pages/welcome";
 import "./pages/chatroom";
-import { Router } from "@vaadin/router";
+import "./router";
 import { state } from "./state";
 
 /* e */ (function () {
-  initWelcomePage();
-
   state.initListener();
 
   state.suscribe(() => {
-    console.log("soy el state del init", state.getState().userId);
+    /*  console.log("soy el state del init", state.getState().userId); */
   });
 
-  state.setEmailAndFullname({
+/*   state.setEmailAndFullname({
     email: "cynthia@apx.school",
     fullname: "Cyn Perez",
   });
@@ -28,6 +26,7 @@ import { state } from "./state";
   state.signIn();
   state.askNewRoom();
   state.listenRoom();
+  state.accessExistentRoom(); */
 })();
 
 /*   // al comenzar
@@ -41,3 +40,12 @@ import { state } from "./state";
     const router = new Router(document.querySelector(".root"));
     router.setRoutes({ path: "/chatroom", component: "chatroom-page" });
   } */
+
+// Propuesta:
+// al comenzar (para evitar la primera pantalla)
+// state.init()
+// recupera el state del localStorage
+// const cs = state.getState()
+// if(cs.rtdbRoomId && cs.userId){
+//   Router.push("/chat")
+// }
